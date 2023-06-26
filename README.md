@@ -74,7 +74,7 @@ The main focus was on getting familiar with Hyperledger and its different ways o
 
 
 ### Author
- [AL-FAHAMI TOIHIR](https://alfahami.github.io/ "Resume and protfolio page")\
+ [AL-FAHAMI TOIHIR](https://alfahami.github.io/ "Resume and protfolio page")
  
  ### Licence: 
 Shield: [![CC BY 4.0][cc-by-shield]][cc-by]
