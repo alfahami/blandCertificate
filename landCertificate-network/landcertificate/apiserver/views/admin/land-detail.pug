@@ -1,0 +1,45 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  link(rel='stylesheet' href='/static/css/A4.css')
+  title LAND DETAILS
+
+.page
+  h4.center Kingdom of Morocco
+  h4.center المملكة المغربية
+  h4.center 
+    img.resized(src='/static/images/logo.png' alt='')
+  h6.center National Agency for Land Conservation, Cadastre and Cartography
+  h6.center الوكالة الوطنية للمحافظة العقارية و المسح العقاري و الخرائطية 
+  h4.centered 
+    #qrcode
+  h3.center.mt-150.underline.mb-80 CERTIFICATE OF OWNERSHIP
+
+  p The curator of land ownership and land rights of 
+    b #{titre["city_fonc"]} 
+    | certifies that the said title 
+    b #{titre["titreNumber"]} 
+    | of which :
+    p.m-4 The domain index number 
+      b #{titre["indice"]} 
+      | with a special clue.
+      b #{titre["special_indice"]}
+      |  belongs to 
+      b #{titre["fullName"]}, CIN N° #{titre["cin"]}
+      |  living in 
+      b #{titre["address"]}.
+    p.m-4 This certificate is issued to serve and assert what is right.
+    p.m-6.right  
+      b Rabat, 
+          span= moment(updateDate).format('DD/MM/YYYY')
+   
+
+  script(src='https://cdn.jsdelivr.net/gh/davidshimjs/qrcodejs/qrcode.min.js')
+  
+
+
+script(src='/static/js/main.js') 
+      
+    

@@ -1,0 +1,104 @@
+doctype html
+head
+  // Required meta tags
+  meta(charset='utf-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
+  link(rel='preconnect' href='https://fonts.googleapis.com')
+  link(rel='preconnect' href='https://fonts.gstatic.com' crossorigin='')
+  link(href='https://fonts.googleapis.com/css2?family=PT+Serif&display=swap' rel='stylesheet')
+  // Bootstrap CSS
+  link(rel='stylesheet' href='/static/css/bootstrap.min.css')
+  // Style
+  link(rel='stylesheet' href='/static/css/style.css')
+  title CERTIFY LAND
+.content
+  .container.mt-5
+    .row.justify-content-center
+      .col-md-10
+        .row.justify-content-center
+          .col-md-6
+            .bordered
+              p.lead
+                | import an excel sheet to certify list of titles
+                span.icon-hand-down
+              form(action="/api/preview_excel_data" method="POST", enctype="multipart/form-data")
+                input#my_file_input.form-control-file(type='file', name="file")
+                input.btn.btn-success.right(type='submit' value='Valider')
+              .clearfix  
+            .center.m-4
+              a.btn.btn-success(href='/api/admin/index') List all certified lands
+            h4.heading.mb-4.mt-4 Pending Receieved Requested
+        
+            if results 
+              each item in results 
+                  li Full Name: 
+                    strong 
+                      em #{item.nom} 
+                      em #{item.prenom} 
+                    | - #{item.typeid}: 
+                    strong
+                      em #{item.id}
+
+                    p.mb-0.ml-40  Email: 
+                      strong
+                        em #{item.courrier} 
+                      | - Indice: 
+                      strong
+                        em #{item.indice} 
+                    p.ml-40 Land Num: 
+                      strong 
+                        em #{item.numero} 
+                      | - Special Indice:
+                      strong 
+                        em #{item.indicespecial}
+                  hr
+              else 
+                p No request yet.
+              
+          .col-md-6
+            h5.heading.mb-4 Personal infomations
+            form#contactForm.mb-5(method='POST' action="/api/admin/addland")
+              .row
+                .col-md-12.form-group
+                  input#name.form-control(type='text' name='fullName' placeholder='Full name')
+              .row
+                .col-md-12.form-group
+                  input#name.form-control(type='text' name='cin' placeholder='CIN/Passport')
+              .row
+                .col-md-12.form-group
+                  input#address.form-control(type='text' name='address' placeholder='Address')
+              .row
+                .col-md-12.form-group
+                  input#email.form-control(type='email' name='email' placeholder='Email')
+              h5.heading.mb-4 Land's infos
+              .row 
+                .col-md-12.form-group
+                  input#number.form-control(type='text' name='titreNumber' placeholder='Land Number')
+              .row
+                .col-md-12.form-group
+                    select.form-select-sm(name='city_fonc')
+                      option(value='') Land Conserver
+                      option(value='Kenitra') Kenitra
+                      option(value='Fes') Fes
+                      option(value='Rabat') Rabat
+                      option(value='Tanger') Tanger  
+              .row
+                .col-md-12.form-group
+                   select.form-select-sm(name='indice')
+                      option(value='') Indice
+                      option(value='07') 07
+                      option(value='F') F
+                      option(value='41') 41
+                      option(value='K') K
+              .row
+                .col-md-12.form-group
+                   select.form-select-sm(name='special_indice')
+                      option(value='') Special Indice
+                      option(value='Bis') BIS
+                      option(value='BIS1') BIS1
+                      option(value='BIS2') BIS2
+                      option(value='BIS3') BIS
+              .row
+                .col-12
+                  input.btn.btn-success.rounded-0.py-2.px-2.right(type='submit' value='Valider')
+                  span.submitting

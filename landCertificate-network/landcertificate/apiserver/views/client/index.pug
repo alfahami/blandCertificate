@@ -1,0 +1,61 @@
+doctype html
+head
+  meta(charset='utf-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
+  link(rel='preconnect' href='https://fonts.googleapis.com')
+  link(rel='preconnect' href='https://fonts.gstatic.com' crossorigin='')
+  link(href='https://fonts.googleapis.com/css2?family=PT+Serif&display=swap' rel='stylesheet')
+  // Bootstrap CSS
+  link(rel='stylesheet' href='/static/css/bootstrap.min.css')
+  // Style
+  link(rel='stylesheet' href='/static/css/style.css')
+  title Request land certification
+#demandeClient.content
+  .container.mt-5.col-md-8
+    if alert_msg  
+      .alert.alert-success.alert-dismissible 
+        button.close(data-dismiss='alert') &times;
+        strong
+        | #{alert_msg}
+    h4 Property certificate application form
+    h5.mt-4 Personal informations
+    form#formClient(action='/confirmation' method='POST')
+      .form-group
+        input.divided(type='text' name='nom' placeholder='first name')
+        input.divided(type='text' name='prenom' placeholder='last name')
+      .form-group
+        | Identity Type
+        select#first(name='typeid')
+          option(value='')  --Choose--
+          option(valeur='cin') CIN
+          option(valeur='passport') Passport
+      .form-group
+        input.divided(type='text' name='id' placeholder='CIN number/Passport')
+        input.divided(type='email' name='courrier' placeholder='email address')
+      .form-group
+        input(type='text' name='numero' placeholder='Postal Address' id='')
+      h5.mt-4 Land Infos
+      .form-group
+        | Indice
+        select#second(name='indice')
+          option(value='') Indice choice
+          option(value='07') 07
+          option(value='F') F
+          option(value='41') 41
+          option(value='K') K
+      .form-group
+        input(type='text' name='numero' placeholder='land identifier' id='')
+      .form-group
+        select#third.name(name='indicespecial')
+          option(value='') Special indice
+          option(value='BIS') BIS
+          option(value='BIS1') BIS1
+          option(value='BIS2') BIS2
+          option(value='BIS3') BIS3
+      .form-group
+        input.btn.btn-success.rounded-0.py-2.px-2.right(type='submit' value='Envoyer') 
+
+script(src='/static/js/bootstrap.min.js')
+script(src='/static/js/jquery-3.3.1.min.js')
+script(src='/static/js/popper.min.js')
+script(src='https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js')
