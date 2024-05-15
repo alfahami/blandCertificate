@@ -14,7 +14,7 @@ _**NB:** Having **_docker_** installed in one's OS is a **MUST**_.
 **TL;DR** : _if you are familiar with hyperlegder fabric and have everything needed for it to run set up, move to _**landcertificate-network/landcertificate-starter/**_ and [run & execute the network](#commands-execute)_.
 
 If you have never dealth with Hyperledger Fabric before, then you might want to grab the  version that suits well this project.<br>
-Download the [sources of fabric-samples version-2.0.0 repository](https://github.com/hyperledger/fabric-samples/releases/tag/v2.0.0-beta) and do the following:
+Download the [sources of fabric-samples version-2.0.0 repository](https://github.com/hyperledger/fabric-samples/releases/tag/v2.0.0-beta) or grab them from  my [fabric-sample 2021's fork](https://github.com/alfahami/fabric-samples) and do the following:
 
 **landCertificate** is built on top of Hyperledger Linux foundation, thus it's a must to install and configure Hyperledger first.
 
@@ -40,7 +40,7 @@ Repo structure:
    - **landcertificate-network/_** : contains our full blockchain application. It contains our config files, crypto materials, starter-app, chaincode ... etc.
   <blockquote>
   
-  As Hyperledger has changed [fabric_samples](https://github.com/hyperledger/fabric-samples) folder content and structure, _**landcertificat-network/**_ has the necerssary binaries and tools- to build and run up our netwrork. Its content could also be found in the original [fabric-samples version-2.0.0 repository](https://github.com/hyperledger/fabric-samples/releases/tag/v2.0.0-beta)
+  As Hyperledger has changed [fabric_samples](https://github.com/hyperledger/fabric-samples) folder content and structure, _**landcertificat-network/**_ has the necerssary binaries and tools- to build and run up our netwrork. Its content could also be found in the original [fabric-samples version-2.0.0 repository](https://github.com/hyperledger/fabric-samples/releases/tag/v2.0.0-beta) or grab them from  my [fabric-sample 2021's fork](https://github.com/alfahami/fabric-samples)
   </blockquote>
   
   - **_landcertificate-network/test-network/add_path_org1.sh_** : 
