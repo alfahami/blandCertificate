@@ -106,23 +106,19 @@ Now that we went through all the folder and script let's see how we to start the
 ![alt text](screenshots/client_req_sent.png "Client home page")
 
 ##### <u>Admin got the request</u>
-![alt text](screenshots/client_req_filled.png "Client home page")
+![alt text](screenshots/admin_addland_filled.png "Client home page")
+
+After validation, our land is certified in the blockchain
+![alt text](screenshots/admin_all_certificates_w_newly_entered.png "Client home page")
+
+##### <u>Added certificate with it QR Code</u>
+
+![alt text](screenshots/land_detail1.png "Client home page")
+![alt text](screenshots/land_detail2.png "Client home page")
 
 
 
-Adding a certificate\
-Note that one can add a list of certificate by importing an excel sheet (.xls).
-[http://localhost:8080/api/addcertificate](http://localhost:8080/api/addcertificate)
-
-
-![alt text](screenshots/add-certificate.png "Add a certificate")
-
-Git GitHub's certificate\
-[http://localhost:8080/api/query/CERT11](http://localhost:8080/api/query/CERT11)
-
-
-![alt text](screenshots/git-github.png "Certificate details")
-
+<cite>Once again the main idea was to get familiar with how **Hyperledger Fabric** build and handles blockchain rahter than the user application and user experience.</cite>
 
 #### Contributions, remarks & questions
 Please contact me by email in case you've got questions, remarks, ... regarding the project.\
