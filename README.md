@@ -70,18 +70,44 @@ Repo structure:
 Now that we went through all the folder and script let's see how we to start the app step by step :
   - Make sure you are in _**landcertificate-network/landcertificat-starter**_ run the following commands on your terminal:
     
-    * `./startBCertificate.sh` 
+    * `./startBcLand.sh` 
     * `cd apiserver/` 
     * `node enrollAdmin.js && node registerUser.js && node query.js`
     * `node apiserver.js` 
     * Now you can visit [http://localhost:8080/api/](http://localhost:8080/api/) or [http://localhost:8080/api/allcertificates](http://localhost:8080/api/allcertificates) to see already added certificates.
 
   ### Front-end views:
-  All certificates\
-  [http://localhost:8080/api/allcertificates](http://localhost:8080/api/allcertificates)
+
+  #### ADMIN's views
+
+  ##### <u>Certified lands</u>
+  [http://localhost:8080/api/admin/index](http://localhost:8080/api/allcertificates)
+
+  ![alt text](screenshots/admin_all_certificates.png "Add new land form")
+
+##### <u>Adding new Land Certficate</u>
+
+  [http://localhost:8080/api/admin/addland](http://localhost:8080/api/allcertificates)
+
+![alt text](screenshots/admin_addland.png "Add new land form")
 
 
-![alt text](screenshots/allcertificates.png "Diplomas in the ledger")
+#### Client's views
+
+  ##### <u>Request a certificate form</u>
+  [http://localhost:8080/client/index](http://localhost:8080/api/allcertificates)
+
+  ![alt text](screenshots/client_index.png "Client home page")
+
+##### <u>Form filled</u>
+![alt text](screenshots/client_req_filled.png "Client home page")
+
+##### <u>Form submitted</u>
+![alt text](screenshots/client_req_sent.png "Client home page")
+
+##### <u>Admin got the request</u>
+![alt text](screenshots/client_req_filled.png "Client home page")
+
 
 
 Adding a certificate\
