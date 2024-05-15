@@ -74,7 +74,7 @@ Repo structure:
 <a name name="#commands-execute">_**Run & Execute Certificate**_</a>
 
 Now that we went through all the folder and script let's see how we to start the app step by step :
-  - Make sure you are in _**landcertificate-network/landcertificat-starter**_ run the following commands on your terminal:
+  - Make sure you are in _**landcertificate-network/landcertificate-starter**_ run the following commands on your terminal:
     
     * `./startBcLand.sh` 
     * `cd apiserver/` 
