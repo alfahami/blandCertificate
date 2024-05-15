@@ -39,11 +39,11 @@ Repo structure:
   As Hyperledger has changed [fabric_samples](https://github.com/hyperledger/fabric-samples) folder content and structure, _**landcertificat-network/**_ has the necerssary binaries and tools- to build and run up our netwrork. Its content could also be found in the original [fabric-samples version-2.0.0 repository](https://github.com/hyperledger/fabric-samples/releases/tag/v2.0.0-beta)
   </blockquote>
   
-  - **landcertificate-network/test-network/add_path_org1.sh_** : 
+  - **_landcertificate-network/test-network/add_path_org1.sh_** : 
   a custom script that adds *peer cli*, *peer* and *fabric config* related path with org1's environment variables.\
   Copy this file (_test-network/add_path_org1.sh_) to *certficate-network/test-network*.
 
-  - **landcertificate-network/chaincode/landcertificate/_**: contains our smart contract code (**_javascript/_**, **_java/_**) which will be packaged (chaincode), installed and committed to corresponding peers.\
+  - **_landcertificate-network/chaincode/landcertificate/_**: contains our smart contract code (**_javascript/_**, **_java/_**) which will be packaged (chaincode), installed and committed to corresponding peers.\
   Copy the folder **_chaincode/landcertificate/_** to **_landcertificate-network/chaincode_**.\
   Open terminal and run `npm install` to install packages. 
   
