@@ -1,15 +1,19 @@
 # Quick intro
 
-**bcLandCertificate** is a Hyperledger blockchain full application that automates the issuance, dispatch, and management of land/territory certificates.
+**landCertificate** is a Hyperledger blockchain admin/client land certficate requester application built on top of Hyperledger where clients request a land certificate to a land conserver(admin) who will deliver the certificate. Online [mongoDB-atlas](https://www.mongodb.com/products/platform/atlas-database) is used to store clients' resquests, which are displayed in the admin panel.
 
-A blockchain network that let governments and land agencies add their credentials in the blockchain which could help against fraud papers.
+A blockchain network that let's land conservers add its certificates in the blockchain, which can help against land ownership issues and problems.
 
-The network was built using [Hyperledger Fabric V2.X.X](https://www.hyperledger.org/use/fabric) and the test were made on **_Windows 10 WSL/Debian 10 Buster_** machine but should work on any given OS.
+The network was built using [Hyperledger Fabric V2.X.X](https://www.hyperledger.org/use/fabric) and the test were made on **_Linux/Debian 10 Buster_**, **_WSL/Debian 10 Buster_** and **_WSL/Ubuntu_** machines but should work on any given OS.
  
-The web app is built with **_NodeJS_**, **_ExpressJS_**, **_REST API_** and **_PUG_** template engine as a render for the front-end.
+The web app is built with **_NodeJS_**, **_ExpressJS_**, **_REST API_** and **pug template** engine as a render for the front-end.
 
 ## Configuration and running
-**bcLandCertificate** is built on top of Hyperledger Linux foundation, thus it's a must to install and configure Hyperledger first.
+
+**TL;DR** : _if you are familiar with hyperlegder fabric and have everything needed for it to run set up, move to _**landcertificate-network/landcertificate-starter/**_ and [run & execute the network](#commands-execute)_.
+
+
+**landCertificate** is built on top of Hyperledger Linux foundation, thus it's a must to install and configure Hyperledger first.
 
 ### Hyperledger installation and configuration
 
@@ -24,21 +28,27 @@ The web app is built with **_NodeJS_**, **_ExpressJS_**, **_REST API_** and **_P
   - Find more details [Official HL documentation](https://hyperledger-fabric.readthedocs.io/en/release-2.2/install.html)
   - Run the test-network as described in [using the test-network tutoriel](https://hyperledger-fabric.readthedocs.io/en/release-2.2/test_network.html) to make sure that everything is set up.
 
-### bcLandCertificate, installation and running
+### landCertificate, installation and running
 Now how so we start our HL network and get our web app running?
 
 First and foremost, download or clone this repo.\
 Repo structure:
-  - **_test-network/add_path_org1.sh_** : 
-  a script that adds *peer cli*, *peer* and *fabric config* related path with org1's environment variables.\
-  Copy this file (_test-network/add_path_org1.sh_) to *fabric-samples/test-network*.
+   - **landcertificate-network/_** : contains our full blockchain application. It contains our config files, crypto materials, starter-app, chaincode ... etc.
+  <blockquote>
+  
+  As Hyperledger has changed [fabric_samples](https://github.com/hyperledger/fabric-samples) folder content and structure, _**landcertificat-network/**_ has the necerssary binaries and tools- to build and run up our netwrork. Its content could also be found in the original [fabric-samples version-2.0.0 repository](https://github.com/hyperledger/fabric-samples/releases/tag/v2.0.0-beta)
+  </blockquote>
+  
+  - **landcertificate-network/test-network/add_path_org1.sh_** : 
+  a custom script that adds *peer cli*, *peer* and *fabric config* related path with org1's environment variables.\
+  Copy this file (_test-network/add_path_org1.sh_) to *certficate-network/test-network*.
 
-  - **_chaincode/landcertificate/_**: contains our smart contract code (**_javascript/_**, **_java/_**) which will be packaged (chaincode), installed and committed to corresponding peers.\
-  Copy the folder **_chaincode/landcertificate/_** to **_fabric-samples/chaincode_**.\
+  - **landcertificate-network/chaincode/landcertificate/_**: contains our smart contract code (**_javascript/_**, **_java/_**) which will be packaged (chaincode), installed and committed to corresponding peers.\
+  Copy the folder **_chaincode/landcertificate/_** to **_landcertificate-network/chaincode_**.\
   Open terminal and run `npm install` to install packages. 
   
-  - **_landcertificate/_** : contains our client application and is the starting point of our application.
-    * **_startBCLand.sh_** is the script that is going to start our network, bringing up HL docker images, creating channel, packaging, installing and deploying our chaincode.\
+  - **_landcertificate-network/certificate-starter/_** : contains our client application and is the starting point of our application.
+    * **_startBcLand.sh_** is the script that is going to start our network, bringing up HL docker images, creating channel, packaging, installing and deploying our chaincode.\
     *Note* : We're deploying our chaincode by nitializing the ledger which consists of requesting and invoking a chaincode initialization function (initLedger).\
     Check the flag **_cci_** in `./network.sh deployCC -ccn certificate -ccv 1 -cci initLedger`\
     If you don't want to initialize the ledger, remove `-cci initLedger` from _startBCertificate.sh_
@@ -49,22 +59,43 @@ Repo structure:
     * **_javascript/_** is where we're going to *enroll ou admin*, *registrer our user* (so he/she can run transactions against the network by invoking the chaincode) and *querying the ledger* to get added certificates as we've deployed our chaincode while initializing it.\
     Run `npm install` before using any scripts. 
 
+    * **_java/_** same as *javascript/*, contains our administration scripts.
+    Not fully implemented and neither fully tested.
+
     * **_apiserver/_** is our nodeJS application. It contains same administration scripts in *javascript/* and more.\
-    Run `npm install` before using any enrolling admin, registering the user and invoking transactions.\
+    Run `npm install` before using any enrolling admin, registering the user and invoking transactions.
     
-    * Copy **_landcertificate/_** and paste to **_fabric/samples/_** 
+<a name name="#commands-execute">_**Run & Execute Certificate**_</a>
 
 Now that we went through all the folder and script let's see how we to start the app step by step :
-  - Make sure you are in *fabric-samples/certificate* run the following commands on your terminal:
+  - Make sure you are in _**landcertificate-network/landcertificat-starter**_ run the following commands on your terminal:
     
-    * `./startBcLand.sh` 
+    * `./startBCertificate.sh` 
     * `cd apiserver/` 
     * `node enrollAdmin.js && node registerUser.js && node query.js`
     * `node apiserver.js` 
     * Now you can visit [http://localhost:8080/api/](http://localhost:8080/api/) or [http://localhost:8080/api/allcertificates](http://localhost:8080/api/allcertificates) to see already added certificates.
 
   ### Front-end views:
-  To be added  
+  All certificates\
+  [http://localhost:8080/api/allcertificates](http://localhost:8080/api/allcertificates)
+
+
+![alt text](screenshots/allcertificates.png "Diplomas in the ledger")
+
+
+Adding a certificate\
+Note that one can add a list of certificate by importing an excel sheet (.xls).
+[http://localhost:8080/api/addcertificate](http://localhost:8080/api/addcertificate)
+
+
+![alt text](screenshots/add-certificate.png "Add a certificate")
+
+Git GitHub's certificate\
+[http://localhost:8080/api/query/CERT11](http://localhost:8080/api/query/CERT11)
+
+
+![alt text](screenshots/git-github.png "Certificate details")
 
 
 #### Contributions, remarks & questions
